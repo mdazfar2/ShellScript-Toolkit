@@ -64,7 +64,65 @@ input::placeholder{
     text-decoration: none;
     width: 100%;
 }
-
+.newsletterdiv{
+  display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.newsletterdiv input::placeholder{
+  left: 10px;
+  color: #050505;
+  padding-right: 3px;
+  font-size: 14px;
+  font-weight: 400;
+}
+.newsletterdiv button{
+  background-color: #ea670a;
+  cursor: pointer;
+}
+.newsletterdiv button:hover{
+  background-color: #ff7d1f;
+}
+@media only screen and (max-width:987px){
+    .nav-links{
+        display: none !important;
+    }
+    .active{
+        display: flex;
+    }
+    .hamburger{
+      display: block !important;
+    }
+    .nav-links1 li a {
+        text-decoration: none;
+        color: #000;
+        padding: 10px 15px;
+        font-size: x-large;
+    }
+    .dark-mode .nav-links1 li a {
+      color: #e0e0e0;
+  }
+  .nav-links1 li{
+    position: relative;
+    
+  }
+  .nav-links1 li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+.nav-links1 li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 3px;
+    bottom: -8px;
+    left: 0;
+    background-color: #FF7D1F;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+}
 .isDisplay{
     display: none;
 }
