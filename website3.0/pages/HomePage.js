@@ -5,7 +5,7 @@ import "@stylesheets/homepage.css";
 
 //Importing FontAwesome for Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
-import { faStar, faHeart, faAnglesDown } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faHeart, faAnglesDown, } from "@fortawesome/free-solid-svg-icons";
 
 //Importing the AOS Package for Scroll Animations
 import AOS from "aos";
@@ -89,6 +89,11 @@ function HomePage() {
       img1.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+    // Smooth scroll to the top of the page
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
   return (
     <div>
@@ -324,8 +329,42 @@ function HomePage() {
           </div>
         </div>
       </div>
+
+      <div class="scrollToTop">
+    <div class="inner">
+        <i class="fa fa-arrow-up icon"></i>
+    </div>
+</div>
     </div>
   );
 }
+
+// Select the scrollToTop element
+var scrollToTop = document.querySelector(".scrollToTop");
+
+// Function to calculate the scroll value and update the scrollToTop button
+function calcScrollValue() {
+    let pos = document.body.scrollTop || document.documentElement.scrollTop;
+    let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let percentval = Math.round((pos * 100) / calcHeight);
+
+    if (pos > 100) {
+        scrollToTop.style.display = "flex";
+    } else {
+        scrollToTop.style.display = "none";
+    }
+
+    scrollToTop.style.background = `conic-gradient(red ${percentval}%, white ${percentval}%)`;
+}
+
+// Add click event listener to scrollToTop button
+scrollToTop.addEventListener("click", function() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+});
+
+// Call calcScrollValue on scroll and on load
+window.onscroll = calcScrollValue;
+window.onload = calcScrollValue;
 
 export default HomePage;
