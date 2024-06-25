@@ -1030,3 +1030,17 @@ opacity: 0px;
 #img1{
   margin-bottom: -250px;
 }
+
+::-webkit-scrollbar {
+  width: 15px; 
+  height: 15px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #ffeeee; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#fd8b34, rgb(196, 81, 4));
+  border-radius: 6px;
+}
